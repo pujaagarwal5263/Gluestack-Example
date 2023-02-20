@@ -3,20 +3,21 @@ services:
   engine:
     container_name: engine
     restart: always
-    build: /Users/harshithkumar/glue-ex/backend/engine
+    build: /Users/pujaagarwal/SDK Training/glue-example/backend/engine
     volumes:
-      - /Users/harshithkumar/glue-ex/backend/engine:/server
+      - /Users/pujaagarwal/SDK Training/glue-example/backend/engine:/server
       - /server/node_modules
     env_file:
-      - /Users/harshithkumar/glue-ex/backend/engine/.env
+      - /Users/pujaagarwal/SDK Training/glue-example/backend/engine/.env
   nginx:
     container_name: nginx
     restart: always
-    build: /Users/harshithkumar/glue-ex/backend/engine/router
+    build: /Users/pujaagarwal/SDK Training/glue-example/backend/engine/router
     ports:
       - 9090:80
     volumes:
-      - /Users/harshithkumar/glue-ex/backend/engine/router/nginx.conf:/etc/nginx/nginx.conf
+      - /Users/pujaagarwal/SDK
+        Training/glue-example/backend/engine/router/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       graphql:
         condition: service_healthy
@@ -27,9 +28,11 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - /Users/harshithkumar/glue-ex/backend/services/graphql:/hasura
+      - /Users/pujaagarwal/SDK
+        Training/glue-example/backend/services/graphql:/hasura
     env_file:
-      - /Users/harshithkumar/glue-ex/backend/services/graphql/.env
+      - /Users/pujaagarwal/SDK
+        Training/glue-example/backend/services/graphql/.env
     healthcheck:
       test:
         - CMD-SHELL
@@ -47,7 +50,8 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - /Users/harshithkumar/glue-ex/backend/databases/postgres/db:/var/lib/postgresql/data/
+      - /Users/pujaagarwal/SDK
+        Training/glue-example/backend/databases/postgres/db:/var/lib/postgresql/data/
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgrespass
