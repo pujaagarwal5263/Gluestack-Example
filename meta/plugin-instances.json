@@ -26,5 +26,12 @@
       "directory": "./backend/services/graphql",
       "container_store": {}
     }
+  ],
+  "@gluestack/glue-plugin-service-node": [
+    {
+      "instance": "firstService",
+      "directory": "./backend/services/firstService",
+      "container_store": {}
+    }
   ]
 }

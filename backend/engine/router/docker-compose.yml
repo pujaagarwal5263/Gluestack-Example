@@ -43,6 +43,17 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+  firstservice:
+    container_name: firstservice
+    restart: always
+    build: /Users/pujaagarwal/SDK Training/glue-example/backend/services/firstService
+    volumes:
+      - /Users/pujaagarwal/SDK
+        Training/glue-example/backend/services/firstService:/server
+      - /server/node_modules
+    env_file:
+      - /Users/pujaagarwal/SDK
+        Training/glue-example/backend/services/firstService/.env
   postgres:
     container_name: postgres
     restart: always
