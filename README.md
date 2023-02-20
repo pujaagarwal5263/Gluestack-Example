@@ -3,6 +3,7 @@
 > **Note:** This repository contains example app built using the GlueStack framework.
 
 <strong>This is a project for learning CRUD in gluestack</strong>
+<strong>Different functions have beeb implemented in firstService</strong>
 # Installation
 
 ```shell
