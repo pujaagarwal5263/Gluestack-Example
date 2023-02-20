@@ -16,6 +16,14 @@ class Mutations{
         }
       }
    }`;
+
+   insertTodo = `mutation($todo:String, $user_id: Int){
+    insert_todo_one(object: {todo: $todo, user_id: $user_id}) {
+        id
+        todo
+        user_id
+      }
+   }`;
 };
 
 module.exports = new Mutations();
