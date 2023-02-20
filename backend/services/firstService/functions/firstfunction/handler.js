@@ -1,7 +1,12 @@
+const Common = require("../../common")
+const Queries = require("../../graphql/queries")
 
-module.exports = (req, res, _next) => {
+module.exports = async(req, res, _next) => {
   // do something with the headers & body
   console.log({ headers: req.headers, body: req.body });
-
-  return res.status(200).json({ status: true, message: "Hello World!" });
+  const { data, errors } = await Common.GQLRequest({
+    variables: {},
+    query: Queries.Users,
+  });
+  return res.status(200).json({ data:data, status: true, message: "Hello World!" });
 };

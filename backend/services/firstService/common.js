@@ -17,6 +17,11 @@ class Common {
       },
     });
   }
+
+  Response(res, success, message, data) {
+    res.json({ success, message, data });
+  }
+
 }
 
 module.exports = new Common();
