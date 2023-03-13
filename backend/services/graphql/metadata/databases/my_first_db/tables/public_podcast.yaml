@@ -1,0 +1,98 @@
+table:
+  name: podcast
+  schema: public
+array_relationships:
+  - name: podcast_tags
+    using:
+      manual_configuration:
+        column_mapping:
+          id: podcastID
+        insertion_order: null
+        remote_table:
+          name: pod_tags
+          schema: public
+insert_permissions:
+  - role: speaker
+    permission:
+      check:
+        id:
+          _eq: X-Hasura-User-Id
+      columns:
+        - id
+        - channel_id
+        - name
+        - scheduled_at
+        - created_at
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - topics
+        - co_hostID
+        - creatorID
+        - id
+        - speakerID
+        - banner_url
+        - channel_id
+        - description
+        - name
+        - type
+        - scheduled_at
+        - created_at
+select_permissions:
+  - role: podcast_admin
+    permission:
+      columns:
+        - id
+        - channel_id
+        - name
+        - created_at
+        - scheduled_at
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - topics
+        - co_hostID
+        - creatorID
+        - id
+        - speakerID
+        - banner_url
+        - channel_id
+        - description
+        - name
+        - type
+        - scheduled_at
+        - created_at
+      filter: {}
+update_permissions:
+  - role: podcast_admin
+    permission:
+      columns:
+        - id
+        - channel_id
+        - name
+        - created_at
+        - scheduled_at
+      filter: {}
+      check: {}
+  - role: speaker
+    permission:
+      columns:
+        - id
+        - channel_id
+        - name
+        - scheduled_at
+        - created_at
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+      check:
+        id:
+          _eq: X-Hasura-User-Id
+delete_permissions:
+  - role: speaker
+    permission:
+      filter:
+        id:
+          _eq: X-Hasura-User-Id

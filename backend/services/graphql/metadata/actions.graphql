@@ -1,0 +1,16 @@
+type Mutation {
+  addmultipleuserroles(
+    input: addmultipleuserrolesInput
+  ): addmultipleuserrolesResponse
+}
+
+input addmultipleuserrolesInput {
+  id: Int!
+  email: String!
+}
+
+type addmultipleuserrolesResponse {
+  status: Boolean!
+  message: String!
+}
+
