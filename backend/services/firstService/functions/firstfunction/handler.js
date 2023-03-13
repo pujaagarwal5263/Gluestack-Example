@@ -8,5 +8,6 @@ module.exports = async(req, res, _next) => {
     variables: {},
     query: Queries.Users,
   });
+  console.log(res);
   return res.status(200).json({ data:data, status: true, message: "Hello World!" });
 };

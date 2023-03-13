@@ -32,6 +32,16 @@
       "instance": "firstService",
       "directory": "./backend/services/firstService",
       "container_store": {}
+    },
+    {
+      "instance": "secondService",
+      "directory": "./backend/services/secondService",
+      "container_store": {}
+    },
+    {
+      "instance": "hotels",
+      "directory": "./backend/services/hotels",
+      "container_store": {}
     }
   ]
 }

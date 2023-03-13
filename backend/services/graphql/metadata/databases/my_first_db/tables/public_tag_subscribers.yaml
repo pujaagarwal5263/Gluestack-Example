@@ -1,0 +1,38 @@
+table:
+  name: tag_subscribers
+  schema: public
+array_relationships:
+  - name: tags
+    using:
+      manual_configuration:
+        column_mapping:
+          tagID: id
+        insertion_order: null
+        remote_table:
+          name: tags
+          schema: public
+  - name: users
+    using:
+      manual_configuration:
+        column_mapping:
+          userID: id
+        insertion_order: null
+        remote_table:
+          name: users
+          schema: public
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - id
+        - tagID
+        - userID
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - tagID
+        - userID
+      filter: {}

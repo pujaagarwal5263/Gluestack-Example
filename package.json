@@ -28,6 +28,8 @@
   "workspaces": [
     "backend/engine",
     "backend/services/graphql",
-    "backend/services/firstService"
+    "backend/services/firstService",
+    "backend/services/secondService",
+    "backend/services/hotels"
   ]
 }

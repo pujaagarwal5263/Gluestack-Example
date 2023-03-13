@@ -54,6 +54,17 @@ services:
     env_file:
       - /Users/pujaagarwal/SDK
         Training/glue-example/backend/services/firstService/.env
+  secondservice:
+    container_name: secondservice
+    restart: always
+    build: /Users/pujaagarwal/SDK Training/glue-example/backend/services/secondService
+    volumes:
+      - /Users/pujaagarwal/SDK
+        Training/glue-example/backend/services/secondService:/server
+      - /server/node_modules
+    env_file:
+      - /Users/pujaagarwal/SDK
+        Training/glue-example/backend/services/secondService/.env
   postgres:
     container_name: postgres
     restart: always

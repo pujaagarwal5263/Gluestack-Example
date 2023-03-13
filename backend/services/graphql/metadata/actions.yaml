@@ -1,6 +1,16 @@
-actions: []
+actions:
+  - name: addmultipleuserroles
+    definition:
+      kind: synchronous
+      handler: '{{ACTION_BASE_URL}}/user'
+    permissions:
+      - role: guest
+      - role: staff
+      - role: admin
 custom_types:
   enums: []
-  input_objects: []
-  objects: []
+  input_objects:
+    - name: addmultipleuserrolesInput
+  objects:
+    - name: addmultipleuserrolesResponse
   scalars: []

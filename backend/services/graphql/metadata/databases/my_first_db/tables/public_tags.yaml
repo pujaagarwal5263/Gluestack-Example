@@ -1,0 +1,17 @@
+table:
+  name: tags
+  schema: public
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - id
+        - name
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - name
+      filter: {}

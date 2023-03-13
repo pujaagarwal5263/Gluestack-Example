@@ -1,0 +1,38 @@
+table:
+  name: pod_tags
+  schema: public
+array_relationships:
+  - name: podcasts
+    using:
+      manual_configuration:
+        column_mapping:
+          podcastID: id
+        insertion_order: null
+        remote_table:
+          name: podcast
+          schema: public
+  - name: tags
+    using:
+      manual_configuration:
+        column_mapping:
+          tagID: id
+        insertion_order: null
+        remote_table:
+          name: tags
+          schema: public
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - id
+        - podcastID
+        - tagID
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - podcastID
+        - tagID
+      filter: {}
